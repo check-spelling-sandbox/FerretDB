@@ -900,18 +900,18 @@ func TestResults(t *testing.T) {
 	assert.Equal(t, expectedSummary, string(b), "summary does not match")
 
 	expectedOutput := `
-eval_dev_images<<_GitHubActionsFileCommandDelimeter_
+eval_dev_images<<_GitHubActionsFileCommandDelimiter_
 ferretdb/ferretdb-eval-dev:2.1.0
-_GitHubActionsFileCommandDelimeter_
-eval_images<<_GitHubActionsFileCommandDelimeter_
+_GitHubActionsFileCommandDelimiter_
+eval_images<<_GitHubActionsFileCommandDelimiter_
 ferretdb/ferretdb-eval:2
-_GitHubActionsFileCommandDelimeter_
-development_images<<_GitHubActionsFileCommandDelimeter_
+_GitHubActionsFileCommandDelimiter_
+development_images<<_GitHubActionsFileCommandDelimiter_
 ghcr.io/ferretdb/ferretdb-dev:2
-_GitHubActionsFileCommandDelimeter_
-production_images<<_GitHubActionsFileCommandDelimeter_
+_GitHubActionsFileCommandDelimiter_
+production_images<<_GitHubActionsFileCommandDelimiter_
 quay.io/ferretdb/ferretdb:latest
-_GitHubActionsFileCommandDelimeter_
+_GitHubActionsFileCommandDelimiter_
 `[1:]
 	b, err = io.ReadAll(outputF)
 	require.NoError(t, err)
