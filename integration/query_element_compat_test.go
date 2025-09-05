@@ -36,7 +36,7 @@ func TestQueryElementCompatExist(t *testing.T) {
 			filter: bson.D{{"v", bson.D{{"$exists", true}}}},
 		},
 		"NonExistentField": {
-			filter:     bson.D{{"non-existent", bson.D{{"$exists", true}}}},
+			filter:     bson.D{{"nonexistent", bson.D{{"$exists", true}}}},
 			resultType: EmptyResult,
 		},
 		"ExistsFalse": {

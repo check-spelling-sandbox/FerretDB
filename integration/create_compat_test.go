@@ -33,21 +33,21 @@ func TestCreateCompat(t *testing.T) {
 		AddNonExistentCollection: true,
 	})
 
-	// We expect to have only one (non-existent) collection as the result of setup.
+	// We expect to have only one (nonexistent) collection as the result of setup.
 	require.Len(t, s.TargetCollections, 1)
 	require.Len(t, s.CompatCollections, 1)
 
 	targetDB := s.TargetCollections[0].Database()
 	compatDB := s.CompatCollections[0].Database()
 
-	// Test collection creation in non-existent database.
+	// Test collection creation in nonexistent database.
 	err := targetDB.Drop(s.Ctx)
 	require.NoError(t, err)
 
 	err = compatDB.Drop(s.Ctx)
 	require.NoError(t, err)
 
-	collName := "in-non-existent-db"
+	collName := "in-nonexistent-db"
 
 	targetErr := targetDB.CreateCollection(s.Ctx, collName)
 	compatErr := compatDB.CreateCollection(s.Ctx, collName)

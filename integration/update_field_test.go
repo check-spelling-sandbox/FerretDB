@@ -564,12 +564,12 @@ func TestUpdateFieldErrors(t *testing.T) {
 		},
 		"MulTypeMismatchNonExistent": {
 			id:     "array-documents-nested",
-			update: bson.D{{"$mul", bson.D{{"non-existent", "string"}}}},
+			update: bson.D{{"$mul", bson.D{{"nonexistent", "string"}}}},
 			err: &mongo.WriteError{
 				Code:    14,
-				Message: "Cannot multiply with non-numeric argument: {non-existent: \"string\"}",
+				Message: "Cannot multiply with non-numeric argument: {nonexistent: \"string\"}",
 			},
-			altMessage: "Cannot multiply with non-numeric argument: { non-existent : \"string\" }",
+			altMessage: "Cannot multiply with non-numeric argument: { nonexistent : \"string\" }",
 		},
 		"MulUnsuitableValue": {
 			id:     "array-documents-nested",

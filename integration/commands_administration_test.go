@@ -2449,13 +2449,13 @@ func TestCompactCommandNonExistent(t *testing.T) {
 	}{
 		"NonExistentDB": {
 			force:  true,
-			dbName: "non-existent",
+			dbName: "nonexistent",
 			err: &mongo.CommandError{
 				Code:    26,
 				Name:    "NamespaceNotFound",
 				Message: "database does not exist",
 			},
-			altMessage: "ns does not exist: non-existent.non-existent",
+			altMessage: "ns does not exist: nonexistent.nonexistent",
 		},
 		"NonExistentCollection": {
 			force:  true,
@@ -2465,7 +2465,7 @@ func TestCompactCommandNonExistent(t *testing.T) {
 				Name:    "NamespaceNotFound",
 				Message: "collection does not exist",
 			},
-			altMessage: "ns does not exist: admin.non-existent",
+			altMessage: "ns does not exist: admin.nonexistent",
 		},
 	} {
 		t.Run(name, func(t *testing.T) {
@@ -2478,7 +2478,7 @@ func TestCompactCommandNonExistent(t *testing.T) {
 			})
 
 			command := bson.D{
-				{"compact", "non-existent"},
+				{"compact", "nonexistent"},
 			}
 			if tc.force != nil {
 				command = append(command, bson.E{Key: "force", Value: tc.force})

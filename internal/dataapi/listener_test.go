@@ -252,7 +252,7 @@ func TestSmokeDataAPI(t *testing.T) {
 		jsonBody := `{
 			"database": "` + db + `",
 			"collection": "` + coll + `",
-			"filter": {"v":"non-existent"},
+			"filter": {"v":"nonexistent"},
 			"update": {"$set":{"v":"foo"}},
 			"upsert": true
 		}`
@@ -278,7 +278,7 @@ func TestSmokeDataAPI(t *testing.T) {
 		jsonBody := `{
 			"database": "` + db + `",
 			"collection": "` + coll + `",
-			"filter": {"v":"non-existent"},
+			"filter": {"v":"nonexistent"},
 			"update": {"$set":{"_id":"string_id","v":"foo"}},
 			"upsert": true
 		}`
@@ -298,7 +298,7 @@ func TestSmokeDataAPI(t *testing.T) {
 		jsonBody := `{
 			"database": "` + db + `",
 			"collection": "` + coll + `",
-			"filter": {"v":"non-existent"},
+			"filter": {"v":"nonexistent"},
 			"update": {"$set":{"v":"foo"}},
 			"upsert": true
 		}`

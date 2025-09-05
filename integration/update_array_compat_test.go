@@ -125,7 +125,7 @@ func TestUpdateArrayCompatPop(t *testing.T) {
 			},
 		},
 		"NonExistentField": {
-			update:     bson.D{{"$pop", bson.D{{"non-existent-field", 1}}}},
+			update:     bson.D{{"$pop", bson.D{{"nonexistent-field", 1}}}},
 			resultType: EmptyResult,
 		},
 		"DotNotation": {
@@ -233,7 +233,7 @@ func TestUpdateArrayCompatPush(t *testing.T) {
 			update: bson.D{{"$push", bson.D{{"v", int32(42)}}}},
 		},
 		"NonExistentField": {
-			update: bson.D{{"$push", bson.D{{"non-existent-field", int32(42)}}}},
+			update: bson.D{{"$push", bson.D{{"nonexistent-field", int32(42)}}}},
 		},
 		"DotNotation": {
 			filter: bson.D{{"_id", "array-documents-nested"}},
@@ -281,7 +281,7 @@ func TestUpdateArrayCompatAddToSet(t *testing.T) {
 			update: bson.D{{"$addToSet", bson.D{{"v", float64(42)}}}},
 		},
 		"NonExistentField": {
-			update: bson.D{{"$addToSet", bson.D{{"non-existent-field", int32(42)}}}},
+			update: bson.D{{"$addToSet", bson.D{{"nonexistent-field", int32(42)}}}},
 		},
 		"DotNotation": {
 			filter: bson.D{{"_id", "array-documents-nested"}},
@@ -336,7 +336,7 @@ func TestUpdateArrayCompatPullAll(t *testing.T) {
 			update: bson.D{{"$pullAll", bson.D{{"v", bson.A{float64(42)}}}}},
 		},
 		"NonExistentField": {
-			update:     bson.D{{"$pullAll", bson.D{{"non-existent-field", bson.A{int32(42)}}}}},
+			update:     bson.D{{"$pullAll", bson.D{{"nonexistent-field", bson.A{int32(42)}}}}},
 			resultType: EmptyResult,
 		},
 		"NotSuitableField": {
@@ -439,7 +439,7 @@ func TestUpdateArrayCompatAddToSetEach(t *testing.T) {
 			update: bson.D{{"$addToSet", bson.D{{"v", bson.D{{"$each", bson.A{int32(42), "foo"}}}}}}},
 		},
 		"NonExistentField": {
-			update: bson.D{{"$addToSet", bson.D{{"non-existent-field", bson.D{{"$each", bson.A{int32(42)}}}}}}},
+			update: bson.D{{"$addToSet", bson.D{{"nonexistent-field", bson.D{{"$each", bson.A{int32(42)}}}}}}},
 		},
 		"DotNotation": {
 			update: bson.D{{"$addToSet", bson.D{{"v.0.foo", bson.D{{"$each", bson.A{int32(42)}}}}}}},
@@ -497,7 +497,7 @@ func TestUpdateArrayCompatPushEach(t *testing.T) {
 			update: bson.D{{"$push", bson.D{{"v", bson.D{{"$each", bson.A{int32(42), "foo"}}}}}}},
 		},
 		"NonExistentField": {
-			update: bson.D{{"$push", bson.D{{"non-existent-field", bson.D{{"$each", bson.A{int32(42)}}}}}}},
+			update: bson.D{{"$push", bson.D{{"nonexistent-field", bson.D{{"$each", bson.A{int32(42)}}}}}}},
 		},
 		"DotNotation": {
 			update: bson.D{{"$push", bson.D{{"v.0.foo", bson.D{{"$each", bson.A{int32(42)}}}}}}},
@@ -529,7 +529,7 @@ func TestUpdateArrayCompatPull(t *testing.T) {
 			update: bson.D{{"$pull", bson.D{{"v", "b"}}}},
 		},
 		"FieldNotExist": {
-			update:     bson.D{{"$pull", bson.D{{"non-existent-field", int32(42)}}}},
+			update:     bson.D{{"$pull", bson.D{{"nonexistent-field", int32(42)}}}},
 			resultType: EmptyResult,
 		},
 		"Array": {

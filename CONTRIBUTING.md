@@ -352,7 +352,7 @@ Before submitting a pull request, please make sure that:
 2. Tests are added or updated for new functionality or fixed bugs.
    Typical test cases include:
    - happy paths;
-   - dot notation for existing and non-existent paths;
+   - dot notation for existing and nonexistent paths;
    - edge cases for invalid or unexpected values or types.
 3. Comments are added or updated for all new or changed code.
    Please add missing comments for all (both exported and unexported)

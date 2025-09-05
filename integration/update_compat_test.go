@@ -637,7 +637,7 @@ func testUpdateCurrentDateCompat(tt *testing.T, testCases map[string]updateCurre
 
 func TestUpdateCommandCompat(t *testing.T) {
 	_, collection := setup.Setup(t)
-	nonExistentDB := collection.Database().Client().Database("non-existent")
+	nonExistentDB := collection.Database().Client().Database("nonexistent")
 
 	for name, tc := range map[string]struct {
 		db    *mongo.Database // defaults to targetCollection.Database() and compatCollection.Database()
@@ -749,7 +749,7 @@ func TestUpdateCompat(t *testing.T) {
 			replace: bson.D{},
 		},
 		"ReplaceNonExistentUpsert": {
-			filter:      bson.D{{"non-existent", "no-match"}},
+			filter:      bson.D{{"nonexistent", "no-match"}},
 			replace:     bson.D{{"_id", "new"}},
 			replaceOpts: options.Replace().SetUpsert(true),
 			failsIDs: []struct {
@@ -830,7 +830,7 @@ func TestUpdateCompat(t *testing.T) {
 			},
 		},
 		"UpdateNonExistentUpsert": {
-			filter:     bson.D{{"_id", "non-existent"}},
+			filter:     bson.D{{"_id", "nonexistent"}},
 			update:     bson.D{{"$set", bson.D{{"v", int32(42)}}}},
 			updateOpts: options.Update().SetUpsert(true),
 		},
@@ -943,7 +943,7 @@ func TestUpdateCompatReplacementDoc(t *testing.T) {
 			update: bson.D{},
 		},
 		"FilterAndUpsertTrue": {
-			filter:           bson.D{{"_id", "non-existent"}},
+			filter:           bson.D{{"_id", "nonexistent"}},
 			update:           bson.D{{"v", int32(43)}},
 			upsert:           true,
 			failsForFerretDB: "https://github.com/FerretDB/FerretDB-DocumentDB/issues/359",
@@ -1034,7 +1034,7 @@ func TestUpdateCompatReplacementDoc(t *testing.T) {
 		},
 		"DifferentId": {
 			filter: bson.D{{"_id", "int32"}},
-			update: bson.D{{"_id", "non-existent"}, {"v", int32(43)}},
+			update: bson.D{{"_id", "nonexistent"}, {"v", int32(43)}},
 		},
 	}
 

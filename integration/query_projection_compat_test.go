@@ -203,7 +203,7 @@ func TestQueryProjectionCompat(t *testing.T) {
 			filter: bson.D{},
 			projection: bson.D{
 				{"v.42", true},
-				{"v.non-existent", true},
+				{"v.nonexistent", true},
 				{"v.foo", true},
 				{"v.array", true},
 			},
@@ -212,7 +212,7 @@ func TestQueryProjectionCompat(t *testing.T) {
 			filter: bson.D{},
 			projection: bson.D{
 				{"v.42", false},
-				{"v.non-existent", false},
+				{"v.nonexistent", false},
 				{"v.foo", false},
 				{"v.array", false},
 			},
@@ -241,7 +241,7 @@ func TestQueryProjectionPositionalOperatorCompat(t *testing.T) {
 			projection: bson.D{{"v.$", true}},
 		},
 		"ImplicitNoMatch": {
-			filter:     bson.D{{"v", "non-existent"}},
+			filter:     bson.D{{"v", "nonexistent"}},
 			projection: bson.D{{"v.$", true}},
 			resultType: EmptyResult,
 		},
@@ -275,7 +275,7 @@ func TestQueryProjectionPositionalOperatorCompat(t *testing.T) {
 			},
 		},
 		"ImplicitDotNoMatch": {
-			filter:     bson.D{{"v", "non-existent"}},
+			filter:     bson.D{{"v", "nonexistent"}},
 			projection: bson.D{{"v.foo.$", true}},
 			resultType: EmptyResult,
 		},

@@ -118,7 +118,7 @@ Below is the updated document, without the `zip` field:
 ## $inc
 
 The `$inc` operator increments the value of a given field by a specified amount.
-If the field is non-existent in the document, the `$inc` operator creates a new field and adds it to the document, setting the value to the specified increment amount.
+If the field is nonexistent in the document, the `$inc` operator creates a new field and adds it to the document, setting the value to the specified increment amount.
 
 **Example:** The below query increments the value of the `age` field by `1`.
 
@@ -152,7 +152,7 @@ The updated document looks like this:
 ## $mul
 
 The `$mul` operator multiplies the value of a given field by a specified amount.
-Similar to all most of the other field update operators, if the field is non-existent in the document, the `$mul` operator creates a new one and sets the value to `0`.
+Similar to all most of the other field update operators, if the field is nonexistent in the document, the `$mul` operator creates a new one and sets the value to `0`.
 
 **Example:** This example query multiplies the value of the `salary` field by `25%`, represented as `1.25`.
 

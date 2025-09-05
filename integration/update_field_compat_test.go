@@ -88,7 +88,7 @@ func TestUpdateFieldCompatCurrentDate(t *testing.T) {
 		"UnrecognizedOption": {
 			update: bson.D{{
 				"$currentDate",
-				bson.D{{"v", bson.D{{"array", bson.D{{"unexsistent", bson.D{}}}}}}},
+				bson.D{{"v", bson.D{{"array", bson.D{{"nonexistent", bson.D{}}}}}}},
 			}},
 			resultType: EmptyResult,
 		},
@@ -587,7 +587,7 @@ func TestUpdateFieldCompatIncMulti(t *testing.T) {
 
 	testCases := map[string]testUpdateManyCompatTestCase{
 		"InvalidInc": {
-			filter:     bson.D{{"v", bson.D{{"$eq", "non-existent"}}}},
+			filter:     bson.D{{"v", bson.D{{"$eq", "nonexistent"}}}},
 			update:     bson.D{{"$inc", bson.D{{"v", 1}}}},
 			updateOpts: options.Update().SetUpsert(true),
 			providers:  []shareddata.Provider{shareddata.Scalars},
@@ -1654,7 +1654,7 @@ func TestUpdateFieldCompatSet(t *testing.T) {
 			update: bson.D{{"$set", bson.D{{"v.100.bar", int32(1)}}}},
 		},
 		"ID": {
-			update:     bson.D{{"$set", bson.D{{"_id", "non-existent"}}}},
+			update:     bson.D{{"$set", bson.D{{"_id", "nonexistent"}}}},
 			resultType: EmptyResult,
 		},
 		"SetID": {
@@ -1856,18 +1856,18 @@ func TestUpdateFieldCompatSetOnInsertComplex(t *testing.T) {
 			resultType: EmptyResult,
 		},
 		"IDNotExists": {
-			filter:     bson.D{{"_id", "non-existent"}},
+			filter:     bson.D{{"_id", "nonexistent"}},
 			update:     bson.D{{"$setOnInsert", bson.D{{"new", "val"}}}},
 			updateOpts: options.Update().SetUpsert(true),
 		},
 		"UpsertFalse": {
-			filter:     bson.D{{"_id", "non-existent"}},
+			filter:     bson.D{{"_id", "nonexistent"}},
 			update:     bson.D{{"$setOnInsert", bson.D{{"new", "val"}}}},
 			updateOpts: options.Update().SetUpsert(false),
 			resultType: EmptyResult,
 		},
 		"SetWithSetOnInsert": {
-			filter: bson.D{{"_id", "non-existent"}},
+			filter: bson.D{{"_id", "nonexistent"}},
 			update: bson.D{
 				{"$set", bson.D{{"new", "val"}}},
 				{"$setOnInsert", bson.D{{"v", int32(42)}}},
@@ -1932,13 +1932,13 @@ func TestUpdateFieldCompatMixed(t *testing.T) {
 			resultType: EmptyResult,
 		},
 		"UpsertQueryOperatorEq": {
-			filter:     bson.D{{"_id", bson.D{{"$eq", "non-existent"}}}},
+			filter:     bson.D{{"_id", bson.D{{"$eq", "nonexistent"}}}},
 			update:     bson.D{{"$set", bson.D{{"new", "val"}}}},
 			updateOpts: options.Update().SetUpsert(true),
 		},
 		"UpsertQueryOperatorMixed": {
 			filter: bson.D{
-				{"_id", bson.D{{"$eq", "non-existent"}}},
+				{"_id", bson.D{{"$eq", "nonexistent"}}},
 				{"v", bson.D{{"$lt", 43}}},
 				{"non_existent", int32(0)},
 			},
@@ -1946,12 +1946,12 @@ func TestUpdateFieldCompatMixed(t *testing.T) {
 			updateOpts: options.Update().SetUpsert(true),
 		},
 		"UpsertQueryObject": {
-			filter:     bson.D{{"_id", "non-existent"}, {"v", bson.D{{"k1", "v1"}}}},
+			filter:     bson.D{{"_id", "nonexistent"}, {"v", bson.D{{"k1", "v1"}}}},
 			update:     bson.D{{"$set", bson.D{{"new", "val"}}}},
 			updateOpts: options.Update().SetUpsert(true),
 		},
 		"UpsertQueryObjectNested": {
-			filter:     bson.D{{"_id", "non-existent"}, {"v", bson.D{{"k1", "v1"}, {"k2", bson.D{{"k21", "v21"}}}}}},
+			filter:     bson.D{{"_id", "nonexistent"}, {"v", bson.D{{"k1", "v1"}, {"k2", bson.D{{"k21", "v21"}}}}}},
 			update:     bson.D{{"$set", bson.D{{"new", "val"}}}},
 			updateOpts: options.Update().SetUpsert(true),
 		},
@@ -2539,7 +2539,7 @@ func TestUpdateFieldCompatBit(t *testing.T) {
 			resultType: EmptyResult,
 		},
 		"NonExistent": {
-			update: bson.D{{"$bit", bson.D{{"non-existent", bson.D{{"xor", int32(1)}}}}}},
+			update: bson.D{{"$bit", bson.D{{"nonexistent", bson.D{{"xor", int32(1)}}}}}},
 		},
 		"DotNotation": {
 			update:           bson.D{{"$bit", bson.D{{"v.foo", bson.D{{"xor", int32(1)}}}}}},

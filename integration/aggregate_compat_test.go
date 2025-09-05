@@ -644,7 +644,7 @@ func TestAggregateCompatGroup(t *testing.T) {
 			pipeline: bson.A{
 				bson.D{{"$sort", bson.D{{"_id", 1}}}},
 				bson.D{{"$group", bson.D{
-					{"_id", bson.D{{"missing", "$non-existent"}}},
+					{"_id", bson.D{{"missing", "$nonexistent"}}},
 				}}},
 				bson.D{{"$sort", bson.D{{"_id", 1}}}},
 			},
@@ -678,8 +678,8 @@ func TestAggregateCompatGroup(t *testing.T) {
 				bson.D{{"$sort", bson.D{{"_id", 1}}}},
 				bson.D{{"$group", bson.D{
 					{"_id", bson.D{
-						{"missing1", "$non-existent1"},
-						{"missing2", "$non-existent2"},
+						{"missing1", "$nonexistent1"},
+						{"missing2", "$nonexistent2"},
 					}},
 				}}},
 				bson.D{{"$sort", bson.D{{"_id", 1}}}},
@@ -900,7 +900,7 @@ func TestAggregateCompatGroup(t *testing.T) {
 		"IDSumNonExistentField": {
 			pipeline: bson.A{
 				bson.D{{"$sort", bson.D{{"_id", 1}}}},
-				bson.D{{"$group", bson.D{{"_id", bson.D{{"$sum", "$non-existent"}}}}}},
+				bson.D{{"$group", bson.D{{"_id", bson.D{{"$sum", "$nonexistent"}}}}}},
 				bson.D{{"$sort", bson.D{{"_id", 1}}}},
 			},
 		},
@@ -1349,7 +1349,7 @@ func TestAggregateCompatGroupSum(t *testing.T) {
 				bson.D{{"$sort", bson.D{{"_id", 1}}}},
 				bson.D{{"$group", bson.D{
 					{"_id", "$v"},
-					{"sum", bson.D{{"$sum", "$non-existent"}}},
+					{"sum", bson.D{{"$sum", "$nonexistent"}}},
 				}}},
 				bson.D{{"$sort", bson.D{{"_id", -1}}}},
 			},
@@ -1507,7 +1507,7 @@ func TestAggregateCompatGroupSum(t *testing.T) {
 				bson.D{{"$group", bson.D{
 					{"_id", "$_id"},
 					// first $sum is accumulator operator, second $sum is operator
-					{"sum", bson.D{{"$sum", bson.D{{"$non-existent", "$v"}}}}},
+					{"sum", bson.D{{"$sum", bson.D{{"$nonexistent", "$v"}}}}},
 				}}},
 			},
 			resultType:       EmptyResult,
@@ -1697,7 +1697,7 @@ func TestAggregateCompatUnwind(t *testing.T) {
 		"NonExistent": {
 			pipeline: bson.A{
 				bson.D{{"$sort", bson.D{{"_id", 1}}}},
-				bson.D{{"$unwind", "$non-existent"}},
+				bson.D{{"$unwind", "$nonexistent"}},
 			},
 			resultType: EmptyResult,
 		},
@@ -1717,7 +1717,7 @@ func TestAggregateCompatUnwind(t *testing.T) {
 		"DotNotationNonExistent": {
 			pipeline: bson.A{
 				bson.D{{"$sort", bson.D{{"_id", 1}}}},
-				bson.D{{"$unwind", "$v.non-existent"}},
+				bson.D{{"$unwind", "$v.nonexistent"}},
 			},
 			resultType: EmptyResult,
 		},
@@ -2149,7 +2149,7 @@ func TestAggregateCompatProject(t *testing.T) {
 		"TypeRecursiveNonExistent": {
 			pipeline: bson.A{
 				bson.D{{"$sort", bson.D{{"_id", -1}}}},
-				bson.D{{"$project", bson.D{{"type", bson.D{{"$type", bson.D{{"$non-existent", "$v"}}}}}}}},
+				bson.D{{"$project", bson.D{{"type", bson.D{{"$type", bson.D{{"$nonexistent", "$v"}}}}}}}},
 			},
 			resultType:       EmptyResult,
 			failsForFerretDB: "https://github.com/FerretDB/FerretDB-DocumentDB/issues/368",
@@ -2535,7 +2535,7 @@ func TestAggregateCompatAddFields(t *testing.T) {
 		"TypeRecursiveNonExistent": {
 			pipeline: bson.A{
 				bson.D{{"$sort", bson.D{{"_id", -1}}}},
-				bson.D{{"$addFields", bson.D{{"type", bson.D{{"$type", bson.D{{"$non-existent", "$v"}}}}}}}},
+				bson.D{{"$addFields", bson.D{{"type", bson.D{{"$type", bson.D{{"$nonexistent", "$v"}}}}}}}},
 			},
 			resultType:       EmptyResult,
 			failsForFerretDB: "https://github.com/FerretDB/FerretDB-DocumentDB/issues/349",

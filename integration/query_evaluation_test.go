@@ -128,11 +128,11 @@ func TestQueryEvaluationExprErrors(t *testing.T) {
 			},
 		},
 		"InvalidNestedExpression": {
-			filter: bson.D{{"$expr", bson.D{{"$type", bson.D{{"$non-existent", "foo"}}}}}},
+			filter: bson.D{{"$expr", bson.D{{"$type", bson.D{{"$nonexistent", "foo"}}}}}},
 			err: &mongo.CommandError{
 				Code:    168,
 				Name:    "InvalidPipelineOperator",
-				Message: "Unrecognized expression '$non-existent'",
+				Message: "Unrecognized expression '$nonexistent'",
 			},
 			failsForFerretDB: "https://github.com/FerretDB/FerretDB-DocumentDB/issues/241",
 		},

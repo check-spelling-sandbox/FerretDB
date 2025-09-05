@@ -154,7 +154,7 @@ func TestFindAndModifyCommandErrors(tt *testing.T) {
 		},
 		"SetImmutableID": {
 			command: bson.D{
-				{"update", bson.D{{"$set", bson.D{{"_id", "non-existent"}}}}},
+				{"update", bson.D{{"$set", bson.D{{"_id", "nonexistent"}}}}},
 			},
 			err: &mongo.CommandError{
 				Code: 66,
@@ -339,14 +339,14 @@ func TestFindAndModifyCommandErrors(tt *testing.T) {
 		"MulTypeMismatchNonExistent": {
 			command: bson.D{
 				{"query", bson.D{{"_id", "array-documents-nested"}}},
-				{"update", bson.D{{"$mul", bson.D{{"non-existent", "string"}}}}},
+				{"update", bson.D{{"$mul", bson.D{{"nonexistent", "string"}}}}},
 			},
 			err: &mongo.CommandError{
 				Code:    14,
 				Name:    "TypeMismatch",
-				Message: `Cannot multiply with non-numeric argument: {non-existent: "string"}`,
+				Message: `Cannot multiply with non-numeric argument: {nonexistent: "string"}`,
 			},
-			altMessage: `Cannot multiply with non-numeric argument: { non-existent : "string" }`,
+			altMessage: `Cannot multiply with non-numeric argument: { nonexistent : "string" }`,
 		},
 		"MulUnsuitableValue": {
 			command: bson.D{
@@ -550,7 +550,7 @@ func TestFindAndModifyCommandUpsert(t *testing.T) {
 		},
 		"NonExistentExistsTrue": {
 			command: bson.D{
-				{"query", bson.D{{"non-existent", bson.D{{"$exists", true}}}}},
+				{"query", bson.D{{"nonexistent", bson.D{{"$exists", true}}}}},
 				{"upsert", true},
 				{"update", bson.D{{"$set", bson.D{{"v", "foo"}}}}},
 			},
