@@ -20,7 +20,7 @@ We are enabling [PostgreSQL](https://www.postgresql.org/), [SQLite](https://www.
 With the new release of FerretDB v1.15.0, we've changed our artifacts naming scheme; our binaries and packages now include `linux` as part of their file names.
 The purpose of this is to prepare for providing artifacts for other operating systems.
 
-There are other enhancements and changes in this release, including enabling the use of existing PostgreSQL schema, and making it possible to use FeretDB without a state directory.
+There are other enhancements and changes in this release, including enabling the use of existing PostgreSQL schema, and making it possible to use FerretDB without a state directory.
 
 Let's check them out!
 
@@ -55,7 +55,7 @@ Please see [our release notes](https://github.com/FerretDB/FerretDB/releases/tag
 
 We continue to be overwhelmed by the massive support from the open source community, as we deliver the truly open-source document database alternative to MongoDB.
 Nowhere is this more evident than in our ever-increasing number of contributors.
-In this release, we had 4 new contributors to FerretDB: [@mrusme](https://github.com/mrusme), [@cosmastech](https://github.com/cosmastech), [@chumaumenze](https://github.com/chumaumenze), and [@ksankeerth](https://github.com/ksankeerth).
+In this release, we had four new contributors to FerretDB: [@mrusme](https://github.com/mrusme), [@cosmastech](https://github.com/cosmastech), [@chumaumenze](https://github.com/chumaumenze), and [@ksankeerth](https://github.com/ksankeerth).
 Over the past three months, we've had 24 different community contributors, which is incredible!
 
 Aside from this, FerretDB now has:

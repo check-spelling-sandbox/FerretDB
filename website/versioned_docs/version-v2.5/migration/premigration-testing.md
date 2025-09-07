@@ -39,7 +39,7 @@ You would do the following:
      --postgresql-url=<postgres-connection>
    ```
 
-   The `--listen-addr` flag or the `FERRERDB_LISTEN_ADDR` environment variable is set to `127.0.0.1:27017` by default.
+   The `--listen-addr` flag or the `FERRETDB_LISTEN_ADDR` environment variable is set to `127.0.0.1:27017` by default.
 
 2. Run `mongosh` to connect to the `--listen-addr` and then insert some documents.
 3. Run a command to determine the total storage space occupied by the collection.
@@ -154,7 +154,7 @@ ferretdb_client_responses_total{argument="unknown",command="unknown",opcode="OP_
 
 ### Other tools
 
-We also have a fork of the Amazon DocumentDB Compatibility Tool [here](https://github.com/FerretDB/amazon-documentdb-tools/tree/master/compat-tool).
+We also have a [fork of the Amazon DocumentDB Compatibility Tool](https://github.com/FerretDB/amazon-documentdb-tools/tree/master/compat-tool).
 The tool examines files to identify queries that use unsupported operators in FerretDB.
 Please note that this tool is not highly accurate and may generate inaccurate reports, as it does not parse query syntax with contextual information about the originating command.
 For example, an unsupported operator might appear within a `find` or `aggregate` command, which the tool does not differentiate.

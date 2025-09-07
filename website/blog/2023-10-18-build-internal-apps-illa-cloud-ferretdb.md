@@ -32,7 +32,7 @@ Before you proceed, you will need to have the following:
 
 ## Creating FerretDB resource
 
-We'll use ILLA Builder to create a simple dashboard UI for the FerretDB intance.
+We'll use ILLA Builder to create a simple dashboard UI for the FerretDB instance.
 
 ![ILLA Builder](/img/blog/ferretdb-illacloud/1-illabuilder.png)
 
@@ -61,7 +61,7 @@ ILLA provides "Action type", "Collection", and "Transformer" methods when creati
 
 ### 1. Query all data using `find`
 
-Let's an create action for retrieving all the data in the `supply` collection of the FerretDB instance.
+Let's create action for retrieving all the data in the `supply` collection of the FerretDB instance.
 
 ![Actions to display for query all on supply collection](/img/blog/ferretdb-illacloud/5-query-all-data.png)
 
@@ -102,7 +102,7 @@ Once that's we can display the result in a table with `{{count.data}}`
 
 ![Action for count operation](/img/blog/ferretdb-illacloud/9-count.png)
 
-The combined view of the 3 actions should look like this:
+The combined view of the three actions should look like this:
 
 ![View of all actions](/img/blog/ferretdb-illacloud/10-overall-view.png)
 

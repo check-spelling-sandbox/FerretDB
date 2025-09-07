@@ -384,7 +384,7 @@ func TestQueryEvaluationCompatExpr(t *testing.T) {
 			filter: bson.D{{"$expr", float64(-1)}},
 		},
 		"NonExistent": {
-			filter:     bson.D{{"$expr", "$non-existent"}},
+			filter:     bson.D{{"$expr", "$nonexistent"}},
 			resultType: EmptyResult,
 		},
 		"Type": {

@@ -206,7 +206,7 @@ func TestCreateIndexesCommandCompatCheckFields(tt *testing.T) {
 	targetCollection := targetCollections[0]
 	compatCollection := compatCollections[0]
 
-	// Create an index for a non-existent collection, expect createdCollectionAutomatically to be true.
+	// Create an index for a nonexistent collection, expect createdCollectionAutomatically to be true.
 	collectionName := "newCollection"
 	indexesDoc := bson.D{{"key", bson.D{{"v", 1}}}, {"name", "v_1"}}
 
@@ -295,7 +295,7 @@ func TestDropIndexesCommandCompat(t *testing.T) {
 			resultType: EmptyResult,
 		},
 		"NonExistentMultipleIndexes": {
-			toDrop:     bson.A{"non-existent", "invalid"},
+			toDrop:     bson.A{"nonexistent", "invalid"},
 			resultType: EmptyResult,
 		},
 		"MultipleIndexesWithDefault": {

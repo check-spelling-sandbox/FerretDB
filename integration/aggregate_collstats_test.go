@@ -295,7 +295,7 @@ func TestAggregateCommandCollStatsErrors(t *testing.T) {
 		failsForFerretDB string
 	}{
 		"NonExistentDatabase": {
-			database: collection.Database().Client().Database("non-existent"),
+			database: collection.Database().Client().Database("nonexistent"),
 			command: bson.D{
 				{"aggregate", collection.Name()},
 				{"pipeline", bson.A{bson.D{{"$collStats", bson.D{{"storageStats", bson.D{}}}}}}},
@@ -306,13 +306,13 @@ func TestAggregateCommandCollStatsErrors(t *testing.T) {
 				Name: "NamespaceNotFound",
 				Message: `PlanExecutor error during aggregation :: caused by :: ` +
 					`Unable to retrieve storageStats in $collStats stage :: caused by :: ` +
-					`Collection [non-existent.TestAggregateCommandCollStatsErrors] not found.`,
+					`Collection [nonexistent.TestAggregateCommandCollStatsErrors] not found.`,
 			},
-			altMessage: "Collection [non-existent.TestAggregateCommandCollStatsErrors] not found.",
+			altMessage: "Collection [nonexistent.TestAggregateCommandCollStatsErrors] not found.",
 		},
 		"NonExistentCollection": {
 			command: bson.D{
-				{"aggregate", "non-existent"},
+				{"aggregate", "nonexistent"},
 				{"pipeline", bson.A{bson.D{{"$collStats", bson.D{{"storageStats", bson.D{}}}}}}},
 				{"cursor", bson.D{}},
 			},
@@ -321,9 +321,9 @@ func TestAggregateCommandCollStatsErrors(t *testing.T) {
 				Name: "NamespaceNotFound",
 				Message: `PlanExecutor error during aggregation :: caused by :: ` +
 					`Unable to retrieve storageStats in $collStats stage :: caused by :: ` +
-					`Collection [TestAggregateCommandCollStatsErrors.non-existent] not found.`,
+					`Collection [TestAggregateCommandCollStatsErrors.nonexistent] not found.`,
 			},
-			altMessage: "Collection [TestAggregateCommandCollStatsErrors.non-existent] not found.",
+			altMessage: "Collection [TestAggregateCommandCollStatsErrors.nonexistent] not found.",
 		},
 		"NilCollStats": {
 			command: bson.D{

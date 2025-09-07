@@ -59,10 +59,10 @@ Even though Numbers come in various BSON types – Integer, Long, Double, and De
 This means the focus is on the actual numerical values, not on whether they're Integer, Long, Double, or Decimal.
 For example, an Integer value of 0 is seen as the same as a Double value of 0.0 when comparing them.
 
-### Null and non-existent field comparison
+### Null and nonexistent field comparison
 
-For comparison, a non-existent field is equivalent to Null.
-This means that a field `v` with Null value `{v: null}` is considered the same as a non-existent `v` field in `{}`.
+For comparison, a nonexistent field is equivalent to Null.
+This means that a field `v` with Null value `{v: null}` is considered the same as a nonexistent `v` field in `{}`.
 
 ## Examples showcasing sorting for scalar values
 
@@ -81,7 +81,7 @@ db.outfits.insertMany([
 The `outfits` collection includes a `size` field that represents various BSON types.
 For instance, the document for `flip flops` contains a String value in this field, while `sandals` and `boots` have Integer values.
 The `sneakers` document has the `size` field as a Double value, and the `slippers` document lacks the `size` field altogether.
-To sort these documents in ascending order based on the `size` field, you would use a sorting order of 1 and execute the following query.
+To sort these documents in ascending order based on the `size` field, you would use a sorting order of `1` and execute the following query:
 
 ```js
 db.outfits.find().sort({ size: 1 })
@@ -98,7 +98,7 @@ response = [
 ```
 
 The sorted output starts with the `slippers` document, which lacks a `size` field.
-According to our earlier discussion on [how Null and non-existent fields are equivalent](#null-and-non-existent-field-comparison), it has the lowest BSON type and appears first.
+According to our earlier discussion on [how Null and nonexistent fields are equivalent](#null-and-nonexistent-field-comparison), it has the lowest BSON type and appears first.
 
 Next in line are documents with Number values in the `size` field.
 Numbers hold a higher BSON comparison order than Null, so they appear after `slippers` document with the missing `size` field.
@@ -127,7 +127,7 @@ response = [
 ]
 ```
 
-This time, the output is sorted first by `flip flops` with String `size` field, then by `size` field with Numbers `sandals`, `sneakers` and `boots` and finally `slippers` with a non-existent `size` field.
+This time, the output is sorted first by `flip flops` with String `size` field, then by `size` field with Numbers `sandals`, `sneakers` and `boots` and finally `slippers` with a nonexistent `size` field.
 
 ### Using `_id` as the second sort field
 
@@ -135,7 +135,7 @@ Suppose you want to sort the documents by the `color` field.
 You encounter multiple documents with the color `blue`, and one document has a Null value for this field while another is missing it altogether.
 
 For instance, `flip flops` has a Null value in the `color` field, and the `slippers` document lacks this field.
-Since Null and non-existent fields are considered equivalent in sorting, either could appear first.
+Since Null and nonexistent fields are considered equivalent in sorting, either could appear first.
 In situations like this, the default order in which the records were retrieved from the database is applied.
 
 To maintain a consistent sort order, it's advised to use `_id` as a secondary sorting option.

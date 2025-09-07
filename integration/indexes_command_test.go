@@ -39,7 +39,7 @@ func TestListIndexesCommandNonExistentNS(t *testing.T) {
 	ctx, collection := s.Ctx, s.Collection
 
 	// Calling driver's method collection.Database().Collection("nonexistent").Indexes().List(ctx)
-	// doesn't return an error for non-existent namespaces.
+	// doesn't return an error for nonexistent namespaces.
 	// So that we should use RunCommand to check the behaviour.
 	res := collection.Database().RunCommand(ctx, bson.D{{"listIndexes", "nonexistentColl"}})
 	err := res.Err()
@@ -101,9 +101,9 @@ func TestDropIndexesCommandErrors(t *testing.T) {
 			err: &mongo.CommandError{
 				Code:    27,
 				Name:    "IndexNotFound",
-				Message: "index not found with name [non-existent]",
+				Message: "index not found with name [nonexistent]",
 			},
-			toDrop: bson.A{"non-existent", "invalid"},
+			toDrop: bson.A{"nonexistent", "invalid"},
 		},
 		"InvalidMultipleIndexType": {
 			toDrop: bson.A{1},
@@ -124,13 +124,13 @@ func TestDropIndexesCommandErrors(t *testing.T) {
 			altMessage: "can't find index with key: { \"invalid\" : \"invalid\" }",
 		},
 		"NonExistentKey": {
-			toDrop: bson.D{{"non-existent", 1}},
+			toDrop: bson.D{{"nonexistent", 1}},
 			err: &mongo.CommandError{
 				Code:    27,
 				Name:    "IndexNotFound",
-				Message: "can't find index with key: { non-existent: 1 }",
+				Message: "can't find index with key: { nonexistent: 1 }",
 			},
-			altMessage: "can't find index with key: { \"non-existent\" : 1 }",
+			altMessage: "can't find index with key: { \"nonexistent\" : 1 }",
 		},
 		"DocumentIndexID": {
 			toDrop: bson.D{{"_id", 1}},
@@ -161,15 +161,15 @@ func TestDropIndexesCommandErrors(t *testing.T) {
 		},
 		"NonExistentMultipleKeyIndex": {
 			toDrop: bson.D{
-				{"non-existent1", -1},
-				{"non-existent2", -1},
+				{"nonexistent1", -1},
+				{"nonexistent2", -1},
 			},
 			err: &mongo.CommandError{
 				Code:    27,
 				Name:    "IndexNotFound",
-				Message: "can't find index with key: { non-existent1: -1, non-existent2: -1 }",
+				Message: "can't find index with key: { nonexistent1: -1, nonexistent2: -1 }",
 			},
-			altMessage: "can't find index with key: { \"non-existent1\" : -1, \"non-existent2\" : -1 }",
+			altMessage: "can't find index with key: { \"nonexistent1\" : -1, \"nonexistent2\" : -1 }",
 		},
 	} {
 		t.Run(name, func(t *testing.T) {
@@ -535,12 +535,12 @@ func TestDropIndexesCommandInvalidCollection(t *testing.T) {
 		failsForFerretDB string
 	}{
 		"NonExistentCollection": {
-			collectionName: "non-existent",
+			collectionName: "nonexistent",
 			indexName:      "index",
 			err: &mongo.CommandError{
 				Code:    26,
 				Name:    "NamespaceNotFound",
-				Message: "ns not found TestDropIndexesCommandInvalidCollection-NonExistentCollection.non-existent",
+				Message: "ns not found TestDropIndexesCommandInvalidCollection-NonExistentCollection.nonexistent",
 			},
 		},
 		"InvalidTypeCollection": {
@@ -873,13 +873,13 @@ func TestReIndexErrors(t *testing.T) {
 			},
 		},
 		"NonExistentCollection": {
-			collectionName: "non-existent",
+			collectionName: "nonexistent",
 			err: &mongo.CommandError{
 				Code:    26,
 				Name:    "NamespaceNotFound",
 				Message: "collection does not exist",
 			},
-			altMessage: "ns does not exist: TestReIndexErrors-NonExistentCollection.non-existent",
+			altMessage: "ns does not exist: TestReIndexErrors-NonExistentCollection.nonexistent",
 		},
 	} {
 		t.Run(name, func(t *testing.T) {

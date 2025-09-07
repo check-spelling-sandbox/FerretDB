@@ -6,17 +6,17 @@ sidebar_position: 1
 
 Field update operators allow you to modify the value of a specified field in a document when certain conditions are met.
 
-| Operator                       | Description                                                                                 |
-| ------------------------------ | ------------------------------------------------------------------------------------------- |
-| [`$set`](#set)                 | Assigns the value of a given field                                                          |
-| [`$unset`](#unset)             | Deletes the records of a field from a document                                              |
-| [`$inc`](#inc)                 | Increments a given field's value                                                            |
-| [`$mul`](#mul)                 | Multiplies a given field's value by a specific value                                        |
-| [`$rename`](#rename)           | Renames a given field with another name                                                     |
-| [`$min`](#min)                 | Updates a particular field only when the specified value is lesser than the specified value |
-| [`$max`](#max)                 | Updates a particular field only when the specified value is higher than the specified value |
-| [`$currentDate`](#currentdate) | Specifies the current date and time as the value of a given field                           |
-| [`$setOnInsert`](#setoninsert) | Inserts elements into an array only if they don't already exist                             |
+| Operator                       | Description                                                                                  |
+| ------------------------------ | -------------------------------------------------------------------------------------------- |
+| [`$set`](#set)                 | Assigns the value of a given field                                                           |
+| [`$unset`](#unset)             | Deletes the records of a field from a document                                               |
+| [`$inc`](#inc)                 | Increments a given field's value                                                             |
+| [`$mul`](#mul)                 | Multiplies a given field's value by a specific value                                         |
+| [`$rename`](#rename)           | Renames a given field with another name                                                      |
+| [`$min`](#min)                 | Updates a particular field only when the specified value is less than the specified value    |
+| [`$max`](#max)                 | Updates a particular field only when the specified value is greater than the specified value |
+| [`$currentDate`](#currentdate) | Specifies the current date and time as the value of a given field                            |
+| [`$setOnInsert`](#setoninsert) | Inserts elements into an array only if they don't already exist                              |
 
 For the examples in this section, insert the following documents into the `employees` collection:
 
@@ -118,7 +118,7 @@ response = [
 ## $inc
 
 The `$inc` operator increments the value of a given field by a specified amount.
-If the field is non-existent in the document, the `$inc` operator creates a new field and adds it to the document, setting the value to the specified increment amount.
+If the field is nonexistent in the document, the `$inc` operator creates a new field and adds it to the document, setting the value to the specified increment amount.
 
 **Example:** The below query increments the value of the `age` field by `1`.
 
@@ -152,7 +152,7 @@ response = [
 ## $mul
 
 The `$mul` operator multiplies the value of a given field by a specified amount.
-Similar to all most of the other field update operators, if the field is non-existent in the document, the `$mul` operator creates a new one and sets the value to `0`.
+Similar to all most of the other field update operators, if the field is nonexistent in the document, the `$mul` operator creates a new one and sets the value to `0`.
 
 **Example:** This example query multiplies the value of the `salary` field by `25%`, represented as `1.25`.
 

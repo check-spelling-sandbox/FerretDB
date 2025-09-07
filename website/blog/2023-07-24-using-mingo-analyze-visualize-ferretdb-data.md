@@ -27,7 +27,7 @@ With [Mingo](https://mingo.io/), FerretDB users can easily query, visualize, and
 
 ## Prerequisites
 
-- Download and install Mingo from [here](https://mingo.io/download)
+- [Download and install Mingo](https://mingo.io/download)
 - [Docker](https://www.docker.com/)to set up FerretDB docker installation (see documentation)
 - [mongosh](https://www.mongodb.com/docs/mongodb-shell/)
 
@@ -144,7 +144,7 @@ In Mingo, you can set this up by clicking on the "Aggregation" tab and setting u
 ![Aggregation pipeline](/img/blog/ferretdb-mingo/aggregation-operations.gif)
 
 **Scenario 3:** In Mingo, you can easily query by time range and visualize the data on a chart.
-There are different options avaialble including `#last2weeks`, `#today`, `#lastWeek`, among others.
+There are different options available including `#last2weeks`, `#today`, `#lastWeek`, among others.
 
 ![Time range query](/img/blog/ferretdb-mingo/timerange-query.gif)
 

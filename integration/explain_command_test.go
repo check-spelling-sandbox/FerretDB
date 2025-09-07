@@ -135,7 +135,7 @@ func TestExplainNonExistentCollection(t *testing.T) {
 	var res bson.D
 	err := collection.Database().RunCommand(ctx, bson.D{
 		{"explain", bson.D{
-			{"find", "non-existent"},
+			{"find", "nonexistent"},
 		}},
 	}).Decode(&res)
 

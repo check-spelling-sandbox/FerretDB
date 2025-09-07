@@ -28,9 +28,8 @@ We encourage you to try out the new PostgreSQL backend and let us know what you 
 
 ## arm64 binaries now available
 
-We're also happy to announce that we've added linux/arm64 binaries and .deb/.rpm packages.
+We're also happy to announce that we've added linux/arm64 binaries and .deb/.rpm packages to our [releases](https://github.com/FerretDB/FerretDB/releases/).
 This has been a requested feature by the FerretDB community, and we're thrilled that we can finally provide them for you.
-Check them out [here](https://github.com/FerretDB/FerretDB/releases/).
 
 ## Docker images changes
 
@@ -40,7 +39,7 @@ Production Docker images use `scratch` as a base Docker image, with the only fil
 ## Exciting time for the community
 
 As we celebrate Hacktoberfest this month, we've had a growing number of contributors from the open-source community, and we're really happy about this.
-In this release alone, we had 5 new contributors – [@Mihai22125](https://github.com/Mihai22125) [@Akhaled19](https://github.com/Akhaled19), [@rohitkbc](https://github.com/rohitkbc), [@princejha95](https://github.com/princejha95), and [@jrmanes](https://github.com/jrmanes) – and this so exciting!
+In this release alone, we had five new contributors – [@Mihai22125](https://github.com/Mihai22125) [@Akhaled19](https://github.com/Akhaled19), [@rohitkbc](https://github.com/rohitkbc), [@princejha95](https://github.com/princejha95), and [@jrmanes](https://github.com/jrmanes) – and this so exciting!
 
 Fostering the spirit of open source is a core mission of ours, where anyone – developers, writers, designers, etc – can feel comfortable contributing to community-driven open source projects.
 This is why we wrote this blog post to assist new contributors get started in open source – [see it here](https://blog.ferretdb.io/how-to-contribute-to-open-source-2022/).

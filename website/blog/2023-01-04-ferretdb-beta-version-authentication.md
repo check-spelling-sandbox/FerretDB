@@ -48,7 +48,7 @@ For example, you can follow the following steps:
 
 6. Restore database using `mongorestore --uri="mongodb://127.0.0.1:27017"`
 
-7. While you can rollback with `mongorestore`, in case something doesn't work and you need to rollback to FerretDB 0.7.1:
+7. While you can rollback with `mongorestore`, if something doesn't work and you need to rollback to FerretDB 0.7.1:
    - Stop ferretdb
    - Delete ferretdb database (repeat step 4)
    - Restore `ferretdb` PostgreSQL db from the dump we created on the step 2: `psql -h 127.0.0.1 -p 5432 -U username ferretdb -f ferretdb.sql`
@@ -117,7 +117,7 @@ However, this change is not a cause for concern, merely a signal that we will be
 This change will not affect the support for the `$elemMatch` query operator.
 For more information on the supported operators and commands, please check out our [updated documentation](https://docs.ferretdb.io/reference/supported_commands/).
 
-Please find more details about the new features and changes in the beta version [here](https://github.com/FerretDB/FerretDB/releases/tag/v0.8.0).
+Please find more [details about the new features and changes in the beta version](https://github.com/FerretDB/FerretDB/releases/tag/v0.8.0).
 
 ## And to our amazing community and users
 

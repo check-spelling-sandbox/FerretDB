@@ -6,10 +6,10 @@ sidebar_position: 5
 
 Evaluation query operators return data based on the evaluation of a specified expression.
 
-| Operator           | Description                                                                                                       |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| [`$mod`](#mod)     | Matches documents where the field element is divided by a given value and returns a the specified remainder value |
-| [`$regex`](#regex) | Matches documents where a field matches a specified regular expression query                                      |
+| Operator           | Description                                                                                                     |
+| ------------------ | --------------------------------------------------------------------------------------------------------------- |
+| [`$mod`](#mod)     | Matches documents where the field element is divided by a given value and returns the specified remainder value |
+| [`$regex`](#regex) | Matches documents where a field matches a specified regular expression query                                    |
 
 For the examples in this section, insert the following documents into the `catalog` collection:
 
@@ -129,7 +129,7 @@ The output:
 
 :::note
 The regex flag for ignoring white spaces (`x`) is not currently supported.
-Follow [here](https://github.com/FerretDB/FerretDB/issues/592) for more updates.
+Follow [FerretDB/FerretDB#592](https://github.com/FerretDB/FerretDB/issues/592) for more updates.
 :::
 
 To perform case-insensitive matching, use the `i` flag in the `regex` expression.

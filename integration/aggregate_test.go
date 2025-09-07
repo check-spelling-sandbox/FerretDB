@@ -178,12 +178,12 @@ func TestAggregateGroupErrors(t *testing.T) {
 		},
 		"NonExistentOperator": {
 			pipeline: bson.A{
-				bson.D{{"$group", bson.D{{"_id", bson.D{{"$non-existent", "foo"}}}}}},
+				bson.D{{"$group", bson.D{{"_id", bson.D{{"$nonexistent", "foo"}}}}}},
 			},
 			err: &mongo.CommandError{
 				Code:    168,
 				Name:    "InvalidPipelineOperator",
-				Message: "Unrecognized expression '$non-existent'",
+				Message: "Unrecognized expression '$nonexistent'",
 			},
 			failsForFerretDB: "https://github.com/FerretDB/FerretDB-DocumentDB/issues/390",
 		},
@@ -227,12 +227,12 @@ func TestAggregateGroupErrors(t *testing.T) {
 		},
 		"RecursiveNonExistentOperator": {
 			pipeline: bson.A{
-				bson.D{{"$group", bson.D{{"_id", bson.D{{"$type", bson.D{{"$non-existent", "foo"}}}}}}}},
+				bson.D{{"$group", bson.D{{"_id", bson.D{{"$type", bson.D{{"$nonexistent", "foo"}}}}}}}},
 			},
 			err: &mongo.CommandError{
 				Code:    168,
 				Name:    "InvalidPipelineOperator",
-				Message: "Unrecognized expression '$non-existent'",
+				Message: "Unrecognized expression '$nonexistent'",
 			},
 			failsForFerretDB: "https://github.com/FerretDB/FerretDB-DocumentDB/issues/390",
 		},
@@ -241,14 +241,14 @@ func TestAggregateGroupErrors(t *testing.T) {
 				bson.D{{"$group", bson.D{
 					{"_id", bson.D{
 						{"v", "$v"},
-						{"v", "$non-existent"},
+						{"v", "$nonexistent"},
 					}},
 				}}},
 			},
 			err: &mongo.CommandError{
 				Code:    16406,
 				Name:    "Location16406",
-				Message: "duplicate field name specified in object literal: { v: \"$v\", v: \"$non-existent\" }",
+				Message: "duplicate field name specified in object literal: { v: \"$v\", v: \"$nonexistent\" }",
 			},
 			failsForFerretDB: "https://github.com/FerretDB/FerretDB-DocumentDB/issues/390",
 		},
@@ -607,24 +607,24 @@ func TestAggregateProjectErrors(t *testing.T) {
 		},
 		"ProjectNonExistentOperator": {
 			pipeline: bson.A{
-				bson.D{{"$project", bson.D{{"v", bson.D{{"$non-existent", "foo"}}}}}},
+				bson.D{{"$project", bson.D{{"v", bson.D{{"$nonexistent", "foo"}}}}}},
 			},
-			altMessage: "Invalid $project :: caused by :: Unrecognized expression '$non-existent'",
+			altMessage: "Invalid $project :: caused by :: Unrecognized expression '$nonexistent'",
 			err: &mongo.CommandError{
 				Code:    31325,
 				Name:    "Location31325",
-				Message: "Invalid $project :: caused by :: Unknown expression $non-existent",
+				Message: "Invalid $project :: caused by :: Unknown expression $nonexistent",
 			},
 			failsForFerretDB: "https://github.com/FerretDB/FerretDB-DocumentDB/issues/369",
 		},
 		"ProjectRecursiveNonExistentOperator": {
 			pipeline: bson.A{
-				bson.D{{"$project", bson.D{{"v", bson.D{{"$type", bson.D{{"$non-existent", "foo"}}}}}}}},
+				bson.D{{"$project", bson.D{{"v", bson.D{{"$type", bson.D{{"$nonexistent", "foo"}}}}}}}},
 			},
 			err: &mongo.CommandError{
 				Code:    168,
 				Name:    "InvalidPipelineOperator",
-				Message: "Invalid $project :: caused by :: Unrecognized expression '$non-existent'",
+				Message: "Invalid $project :: caused by :: Unrecognized expression '$nonexistent'",
 			},
 			failsForFerretDB: "https://github.com/FerretDB/FerretDB-DocumentDB/issues/369",
 		},

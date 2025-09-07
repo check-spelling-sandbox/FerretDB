@@ -37,10 +37,10 @@ type SetupCompatOpts struct {
 	// Data providers.
 	Providers []shareddata.Provider
 
-	// If true, a non-existent collection will be added to the list of collections.
+	// If true, a nonexistent collection will be added to the list of collections.
 	// This is useful to test the behavior when a collection is not found.
 	//
-	// This flag is not needed, always add a non-existent collection.
+	// This flag is not needed, always add a nonexistent collection.
 	// TODO https://github.com/FerretDB/FerretDB/issues/1545
 	AddNonExistentCollection bool
 
@@ -169,10 +169,10 @@ func setupCompatCollections(tb testing.TB, ctx context.Context, client *mongo.Cl
 		collections = append(collections, collection)
 	}
 
-	// opts.AddNonExistentCollection is not needed, always add a non-existent collection
+	// opts.AddNonExistentCollection is not needed, always add a nonexistent collection
 	// TODO https://github.com/FerretDB/FerretDB/issues/1545
 	if opts.AddNonExistentCollection {
-		nonExistedCollectionName := opts.baseCollectionName + "-non-existent"
+		nonExistedCollectionName := opts.baseCollectionName + "-nonexistent"
 		collection := database.Collection(nonExistedCollectionName)
 		collections = append(collections, collection)
 	}
